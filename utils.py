@@ -35,6 +35,14 @@ def is_raspberry_pi(raise_on_errors=False):
                     )
                 else:
                     return False
+                
+                if not found:
+                if raise_on_errors:
+                    raise ValueError(
+                        'Unable to determine if this system is a Raspberry Pi.'
+                    )
+                else:
+                    return False
     except IOError:
         if raise_on_errors:
             raise ValueError('Unable to open `/proc/cpuinfo`.')
